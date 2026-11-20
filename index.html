@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0B1224" />
+  <script>try{if(localStorage.getItem('assembly-theme')==='light')document.documentElement.dataset.theme='light'}catch{}</script>
+  <title>مسار Assembly | تعلّم من الصفر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="مسار Assembly، الرئيسية">
+      <span class="brand-mark"><span>&lt;/&gt;</span></span>
+      <span class="brand-name">مسار <b>Assembly</b></span>
+    </a>
+    <nav class="main-nav" id="main-navigation" aria-label="التنقل الرئيسي">
+      <a class="nav-link active" href="#home">الرئيسية</a>
+      <a class="nav-link" href="#learning">مسار التعلّم</a>
+      <a class="nav-link" href="#about">عن المنصة</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="التبديل إلى الوضع النهاري" aria-pressed="false" title="التبديل إلى الوضع النهاري">
+      <span data-theme-icon aria-hidden="true">☀️</span>
+    </button>
+    <div class="contact-wrap">
+      <button class="contact-pill" type="button" aria-label="عرض معلومات التواصل مع OxAmeer" aria-expanded="false" aria-controls="contact-panel">
+        <img src="assets/images/oxameer-linux-avatar.jpg" alt="" width="44" height="44" />
+        <span>OxAmeer</span>
+      </button>
+      <div class="contact-panel" id="contact-panel" role="dialog" aria-label="معلومات التواصل" hidden>
+        <h2>تواصل معي</h2>
+        <p>اختَر المنصة المناسبة للتواصل.</p>
+        <a class="contact-option" data-contact-telegram href="https://t.me/Rtum4" target="_blank" rel="noopener noreferrer" aria-label="التواصل عبر تيليگرام مع Rtum4">
+          <span class="contact-option-icon" aria-hidden="true">✈</span>
+          <span><b>تيليگرام</b><small dir="ltr">@Rtum4</small></span>
+        </a>
+        <a class="contact-option" data-contact-instagram href="https://www.instagram.com/am_4s3/" target="_blank" rel="noopener noreferrer" aria-label="التواصل عبر إنستغرام مع am_4s3">
+          <span class="contact-option-icon instagram-icon" aria-hidden="true">◎</span>
+          <span><b>إنستغرام</b><small dir="ltr">@am_4s3</small></span>
+        </a>
+      </div>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span></span></button>
+  </header>
+
+  <main id="home">
+    <section class="hero wrap" id="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> رحلتك تبدأ من هنا</div>
+        <h1 id="hero-title">تعلّم <span>Assembly</span><br>من الصفر</h1>
+        <p class="hero-description">افهم أساسيات معمارية الحاسوب والبرمجة بلغة Assembly، خطوة بخطوة، وبشرح عربي واضح.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#fundamentals" data-path="fundamentals">ابدأ التعلّم <span class="arrow">←</span></a>
+        </div>
+        <div class="hero-note"><span class="note-icon">✓</span> محتوى مرتب للمبتدئين — لا تحتاج خبرة مسبقة</div>
+      </div>
+      <div class="hero-art" aria-label="رسم توضيحي لشيفرة Assembly">
+        <div class="art-glow"></div>
+        <div class="code-window">
+          <div class="window-bar"><div class="window-dots"><i></i><i></i><i></i></div><span>hello_world.asm</span><span class="window-status">● MASM · Irvine32</span></div>
+          <div class="code-body" dir="ltr">
+            <div><span class="line-no">01</span><span class="code-key">INCLUDE</span> <span class="code-string">Irvine32.inc</span></div>
+            <div class="code-gap"><span class="line-no">02</span></div>
+            <div><span class="line-no">03</span><span class="code-name">.data</span></div>
+            <div><span class="line-no">04</span><span class="code-name">message</span> <span class="code-key">BYTE</span> <span class="code-string">"Hello, world!", 0</span></div>
+            <div class="code-gap"><span class="line-no">05</span></div>
+            <div><span class="line-no">06</span><span class="code-name">.code</span></div>
+            <div><span class="line-no">07</span><span class="code-name">main</span> <span class="code-key">PROC</span></div>
+            <div><span class="line-no">08</span><span class="code-op">&nbsp;&nbsp;mov</span> <span class="code-reg">edx</span>, <span class="code-name">OFFSET message</span></div>
+            <div><span class="line-no">09</span><span class="code-op">&nbsp;&nbsp;call</span> <span class="code-name">WriteString</span></div>
+            <div><span class="line-no">10</span><span class="code-op">&nbsp;&nbsp;exit</span></div>
+            <div><span class="line-no">11</span><span class="code-name">main</span> <span class="code-key">ENDP</span></div>
+            <div><span class="line-no">12</span><span class="code-key">END</span> <span class="code-name">main</span></div>
+          </div>
+          <div class="window-footer"><span><i class="pulse"></i> x86 · 32-bit · Irvine32</span><span>MASM</span></div>
+        </div>
+        <div class="float-chip chip-cpu"><span class="chip-icon">⌘</span><span><b>CPU</b><small>المعالج</small></span></div>
+        <div class="float-chip chip-bits"><span class="bit-icon">01</span><span><b>32-bit</b><small>معمارية المساق</small></span></div>
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+      </div>
+      <div class="hero-bottom"><span>01</span><div></div><span>ابدأ رحلتك التعليمية</span></div>
+    </section>
+
+    <section class="learning-section wrap" id="learning" aria-labelledby="learning-title">
+      <div class="section-heading">
+        <div><span class="section-kicker">مسارك التعليمي</span><h2 id="learning-title">اختَر من أين <span>تبدأ</span></h2><p>مساران واضحان، تعلّم بالترتيب اللي يناسبك.</p></div>
+        <div class="section-count"><span class="count-icon">✦</span><span>تعلّم<br><b>خطوة بخطوة</b></span></div>
+      </div>
+      <div class="path-cards">
+        <article class="path-card fundamentals-card">
+          <div class="card-topline"><span class="path-label"><i></i> ابدأ من هنا</span><span class="card-number">01</span></div>
+          <div class="path-icon icon-foundations"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 8.5A3.5 3.5 0 0 1 12.5 5H39v31H12.5A3.5 3.5 0 0 0 9 39.5v-31Z"/><path d="M9 9v30.5A3.5 3.5 0 0 1 12.5 36H39M16 14h16M16 21h16M16 28h10"/></svg></div>
+          <h3>الأساسيات</h3>
+          <p class="card-description">ابنِ فهمًا قويًا للمفاهيم الأساسية قبل الدخول في تفاصيل المحاضرات.</p>
+          <div class="card-meta"><span><b>5</b> وحدات تعليمية</span><span class="meta-separator"></span><span>شرح + أسئلة نظرية</span></div>
+          <div class="unit-preview"><span class="preview-title">محتوى المسار</span><div class="unit-tags"><span>Assembly Language</span><span>Computer Architecture</span><span>CPU Architecture</span><span>+ وحدتان</span></div></div>
+          <a class="button button-card" href="#fundamentals" data-path="fundamentals">تصفّح الأساسيات <span>←</span></a>
+        </article>
+        <article class="path-card lectures-card">
+          <div class="card-topline"><span class="path-label lecture-label"><i></i> مسار المحاضرات</span><span class="card-number">02</span></div>
+          <div class="path-icon icon-lectures"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="25" rx="4"/><path d="m20 17 10 5-10 5v-10ZM15 40h18M24 34v6"/></svg></div>
+          <h3>المحاضرات</h3>
+          <p class="card-description">تابع محاضرات المادة وارجع لكل موضوع وقت ما تحتاج، ضمن مسار منظم.</p>
+          <div class="card-meta"><span><b>6</b> محاضرات متاحة</span></div>
+          <div class="lecture-preview"><div class="preview-play">▶</div><div><span class="preview-title">المحتوى العملي</span><span class="preview-subtitle">شرح وتطبيقات مرتبطة بالمحاضرات</span></div><span class="lock-mark">✦</span></div>
+          <a class="button button-card button-outline" href="#lectures" data-path="lectures">استكشف المحاضرات <span>←</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="units-section wrap" id="fundamentals" hidden aria-labelledby="units-title">
+      <div class="units-heading">
+        <a class="back-link" href="#learning" data-back>← <span>مسار التعلّم</span></a>
+        <span class="section-kicker">الأساسيات · x86 32-bit</span>
+        <h2 id="units-title">نبني الأساس <span>خطوة بخطوة</span></h2>
+        <p>ابدأ بالوحدة الأولى، وكل وحدة تهيئك لفهم اللي بعدها. الشرح بالعربي والمصطلحات بالإنكليزي.</p>
+      </div>
+      <div class="unit-list" id="unit-list"></div>
+      <article class="lesson-view" id="lesson-view" hidden></article>
+    </section>
+
+    <section class="lectures-section wrap" id="lectures" hidden aria-labelledby="lectures-title">
+      <div class="units-heading">
+        <a class="back-link" href="#learning" data-back>← <span>مسار التعلّم</span></a>
+        <span class="section-kicker">مسار المحاضرات · x86 32-bit</span>
+        <h2 id="lectures-title">المحاضرات <span>شرح وتطبيق</span></h2>
+        <p>افتح شرح المحاضرة، ثم انتقل إلى الأسئلة النظرية والعملية ومختبر Assembly التفاعلي.</p>
+      </div>
+      <div class="lecture-list" id="lecture-list"></div>
+      <article class="lecture-detail" id="lecture-detail" hidden></article>
+    </section>
+
+    <section class="about-strip wrap" id="about"><div class="about-symbol">{ }</div><p><b>تعلّم المفاهيم بلغتك.</b> المصطلحات التقنية تبقى بالإنكليزي، والشرح يوصلك بالعربي.</p><a href="#learning">اكتشف مسارك <span>←</span></a></section>
+  </main>
+  <footer class="footer wrap"><a class="brand footer-brand" href="#home"><span class="brand-mark"><span>&lt;/&gt;</span></span><span class="brand-name">مسار <b>Assembly</b></span></a><span>من الصفر إلى فهم أعمق لمعمارية الحاسوب.</span><span class="footer-copy">© 2026 مسار Assembly</span></footer>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="assets/js/data/fundamentals.js"></script>
+  <script src="assets/js/data/lectures.js"></script>
+  <script src="assets/js/data/lessons/assembly-language.js"></script>
+  <script src="assets/js/data/lessons/computer-architecture.js"></script>
+  <script src="assets/js/data/lessons/cpu-architecture.js"></script>
+  <script src="assets/js/data/lessons/instruction-set-architectures.js"></script>
+  <script src="assets/js/data/lessons/registers-addresses-data-types.js"></script>
+  <script src="assets/js/lab.js"></script>
+  <script src="assets/js/lab-grader.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+/* Theme switch: the default palette remains dark; this layer defines the day mode. */
+:root {
+  color-scheme: dark;
+  --bg: #0b1224;
+  --panel: #1d2b40;
+  --panel2: #26364c;
+  --cyan: #16a8e8;
+  --cyan-light: #54c7f2;
+  --text: #f1f5f9;
+  --muted: #9aa9bc;
+  --line: rgba(176, 198, 223, .13);
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #edf3f9;
+  --panel: #ffffff;
+  --panel2: #f5f9fd;
+  --cyan: #0789c8;
+  --cyan-light: #087fb8;
+  --text: #101a33;
+  --muted: #4c6078;
+  --line: #d6e0eb;
+}
+
+body,
+.path-card,
+.unit-card,
+.lecture-card,
+.lecture-detail,
+.lecture-pane,
+.lesson-content,
+.lesson-questions,
+.quiz-question,
+.practical-question {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  margin-inline-start: 10px;
+  border: 1px solid #44536a;
+  border-radius: 12px;
+  background: #1b263c;
+  color: #f4f7fb;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: #16a8e8;
+  background: #23334b;
+}
+
+.theme-toggle span { font-size: 19px; line-height: 1; }
+.theme-toggle:focus-visible { outline: 3px solid #54c7f2; outline-offset: 3px; }
+
+.contact-wrap { position: relative; flex: 0 0 auto; }
+.contact-pill {
+  min-width: 152px;
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 15px 5px 7px;
+  border: 1px solid #493d86;
+  border-radius: 999px;
+  background: #10182d;
+  color: #f2f6fc;
+  box-shadow: 0 0 24px rgba(105, 76, 210, .17), inset 0 0 0 1px rgba(129, 96, 237, .06);
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.contact-pill:hover { transform: translateY(-1px); border-color: #7762d3; box-shadow: 0 0 27px rgba(105, 76, 210, .28); }
+.contact-pill:focus-visible { outline: 3px solid #54c7f2; outline-offset: 3px; }
+.contact-pill img {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 2px solid #10c4df;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.contact-pill span { direction: ltr; font: 700 13px 'JetBrains Mono', monospace; }
+.contact-panel {
+  position: absolute;
+  top: calc(100% + 13px);
+  left: 0;
+  z-index: 20;
+  width: min(290px, calc(100vw - 30px));
+  padding: 17px;
+  border: 1px solid #493d86;
+  border-radius: 17px;
+  background: linear-gradient(150deg, #151d34, #0e1628);
+  color: #f1f5f9;
+  box-shadow: 0 18px 45px rgba(2, 8, 20, .42), 0 0 25px rgba(105, 76, 210, .14);
+}
+.contact-panel[hidden] { display: none; }
+.contact-panel h2 { margin: 0; font-size: 17px; }
+.contact-panel p { margin: 3px 0 13px; color: #9aa9bc; font-size: 11px; }
+.contact-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px;
+  border: 1px solid #ffffff14;
+  border-radius: 11px;
+  background: #ffffff08;
+  color: inherit;
+  text-decoration: none;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+.contact-option:hover, .contact-option:focus-visible { border-color: #7762d3; background: #ffffff12; transform: translateY(-1px); }
+.contact-option:focus-visible { outline: 2px solid #54c7f2; outline-offset: 2px; }
+.contact-option + .contact-option { margin-top: 8px; }
+.contact-option-icon {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  flex: 0 0 35px;
+  place-items: center;
+  border-radius: 10px;
+  background: #164968;
+  color: #64d3f4;
+  font-size: 19px;
+}
+.contact-option span:last-child { min-width: 0; }
+.contact-option b, .contact-option small { display: block; }
+.contact-option b { font-size: 12px; }
+.contact-option small { margin-top: 1px; color: #9aa9bc; font-size: 10px; }
+.instagram-icon { background: #47304f; color: #f6a8d2; }
+
+html[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Keep the dark navigation from the reference while the learning area turns light. */
+html[data-theme="light"] .topbar {
+  background: rgba(22, 32, 54, .97);
+  border-bottom-color: rgba(194, 211, 235, .13);
+}
+
+html[data-theme="light"] .brand-name { color: #f1f5f9; }
+html[data-theme="light"] .brand-name b { color: #54c7f2; }
+html[data-theme="light"] .login-btn { color: #f1f5f9; background: #1b263c; }
+html[data-theme="light"] .menu-toggle span { background: #d7e4f1; }
+html[data-theme="light"] .theme-toggle { border-color: #43516a; background: #202c43; }
+
+html[data-theme="light"] .hero {
+  margin-block: 32px 48px;
+  padding: 38px 42px 62px;
+  border: 1px solid #cfdae7;
+  border-radius: 28px;
+  background: linear-gradient(118deg, #ffffff 5%, #f9fcff 58%, #e4f5fd 100%);
+  box-shadow: 0 20px 55px rgba(30, 54, 82, .10);
+}
+
+html[data-theme="light"] .hero h1,
+html[data-theme="light"] .section-heading h2,
+html[data-theme="light"] .path-card h3,
+html[data-theme="light"] .units-heading h2,
+html[data-theme="light"] .lecture-title,
+html[data-theme="light"] .lesson-title,
+html[data-theme="light"] .lesson-content > h3,
+html[data-theme="light"] .lesson-content h4 { color: #101a33; }
+
+html[data-theme="light"] .hero-description,
+html[data-theme="light"] .section-heading p,
+html[data-theme="light"] .card-description,
+html[data-theme="light"] .units-heading > p,
+html[data-theme="light"] .unit-content p,
+html[data-theme="light"] .lecture-card .unit-content p,
+html[data-theme="light"] .lesson-lead,
+html[data-theme="light"] .lesson-content p,
+html[data-theme="light"] .lesson-content > ul,
+html[data-theme="light"] .quiz-option,
+html[data-theme="light"] .practical-question > p,
+html[data-theme="light"] .pdf-heading p { color: #61748d; }
+
+html[data-theme="light"] .eyebrow {
+  color: #087fb8;
+  border-color: #bee6f5;
+  background: #e4f5fc;
+}
+
+html[data-theme="light"] .hero-note,
+html[data-theme="light"] .hero-bottom,
+html[data-theme="light"] .section-count,
+html[data-theme="light"] .card-meta,
+html[data-theme="light"] .preview-title,
+html[data-theme="light"] .footer { color: #465a72; }
+
+html[data-theme="light"] .hero-bottom div { background: #bdd6e5; }
+html[data-theme="light"] .section-count b,
+html[data-theme="light"] .card-meta b { color: #263851; }
+
+html[data-theme="light"] .learning-section { border-top-color: #d9e3ed; }
+
+html[data-theme="light"] .path-card,
+html[data-theme="light"] .unit-card,
+html[data-theme="light"] .lecture-card,
+html[data-theme="light"] .lesson-content,
+html[data-theme="light"] .lesson-questions,
+html[data-theme="light"] .lecture-questions-panel,
+html[data-theme="light"] .lecture-practice,
+html[data-theme="light"] .quiz-question,
+html[data-theme="light"] .practical-question,
+html[data-theme="light"] .pdf-pane {
+  border-color: #d5e0eb;
+  background: linear-gradient(135deg, #ffffff, #f7faff);
+  box-shadow: 0 10px 28px rgba(26, 51, 79, .055);
+}
+
+html[data-theme="light"] .path-card:hover,
+html[data-theme="light"] .unit-card:hover { border-color: #7ec9e7; }
+html[data-theme="light"] .path-card:after { opacity: .9; }
+html[data-theme="light"] .unit-number { background: #e0f4fc; color: #0789c8; }
+html[data-theme="light"] .unit-content h3 { color: #17243b; }
+html[data-theme="light"] .unit-content h3 span,
+html[data-theme="light"] .lecture-card .unit-content h3 span { color: #087fb8; }
+html[data-theme="light"] .unit-format { color: #4f7188; }
+html[data-theme="light"] .unit-topic-list span,
+html[data-theme="light"] .lecture-card .unit-topic-list span {
+  border-color: #d5e3ee;
+  color: #4f647d;
+  background: #f1f6fa;
+}
+html[data-theme="light"] .unit-preview,
+html[data-theme="light"] .lecture-preview {
+  border-color: #dbe5ee;
+  background: #f2f7fb;
+}
+html[data-theme="light"] .preview-subtitle { color: #647890; }
+html[data-theme="light"] .lecture-card .unit-content h3 { color: #14223a; }
+html[data-theme="light"] .lecture-card .unit-format { color: #55728a; }
+
+html[data-theme="light"] .lecture-detail-topline .section-kicker,
+html[data-theme="light"] .lesson-tag { color: #087fb8; }
+html[data-theme="light"] .lecture-tabs {
+  border-color: #d5e0eb;
+  background: rgba(237, 243, 249, .96);
+}
+html[data-theme="light"] .lecture-tab { color: #51657c; border-color: #ccd9e5; background: #f6f9fc; }
+html[data-theme="light"] .lecture-tab.active { color: #075e88; border-color: #b7e3f3; background: #dff3fb; }
+html[data-theme="light"] .pdf-heading h3,
+html[data-theme="light"] .questions-heading h3,
+html[data-theme="light"] .quiz-question h4,
+html[data-theme="light"] .practical-question h4 { color: #18263d; }
+html[data-theme="light"] .quiz-question h4 span,
+html[data-theme="light"] .practical-question h4 span { background: #e0f4fc; color: #087fb8; }
+html[data-theme="light"] .quiz-option {
+  border-color: #dce6ef;
+  background: #f5f8fb;
+}
+html[data-theme="light"] .quiz-option:hover { border-color: #8ecfe8; background: #edf8fc; }
+html[data-theme="light"] .quiz-option:has(input:checked) { border-color: #60b9dc; background: #e8f6fc; }
+html[data-theme="light"] .practical-input-label { color: #53677e; }
+html[data-theme="light"] .quiz-feedback,
+html[data-theme="light"] .practical-feedback { color: #52667d; }
+html[data-theme="light"] .back-link { color: #087fb8; }
+html[data-theme="light"] .about-strip {
+  border-color: #cde1ef;
+  background: linear-gradient(100deg, #f0f8fd, #e6f4fb);
+  color: #536a82;
+}
+html[data-theme="light"] .about-strip p b { color: #1c2d43; }
+html[data-theme="light"] .about-symbol { background: #d9f1fb; }
+html[data-theme="light"] .footer { border-top-color: #d7e1eb; }
+html[data-theme="light"] .footer-copy { color: #465a72; }
+html[data-theme="light"] .card-meta { font-size: 12px; }
+html[data-theme="light"] .preview-title { color: #4c6078; font-size: 11px; }
+html[data-theme="light"] .button-outline { border-color: #c3d1df; color: #33465e; }
+html[data-theme="light"] .button-outline:hover { background: #eaf4fa; border-color: #7fc5e1; }
+html[data-theme="light"] .text-link { color: #3e5873; }
+
+html[data-theme="light"] .lesson-outline { background: rgba(237, 243, 249, .96); }
+html[data-theme="light"] .lesson-outline a { border-color: #cad8e5; color: #52677f; }
+html[data-theme="light"] .lesson-content > ul bdi { color: #24364e; }
+html[data-theme="light"] .flow-figure,
+html[data-theme="light"] .memory-map { border-color: #cfdce8; background: #f4f8fc; }
+html[data-theme="light"] .memory-address { color: #637890; }
+html[data-theme="light"] .memory-segment small { color: #3e5873; }
+
+/* Light mode keeps secondary copy readable without changing the dark lab panels. */
+html[data-theme="light"] .hero-note,
+html[data-theme="light"] .hero-bottom,
+html[data-theme="light"] .section-count,
+html[data-theme="light"] .preview-subtitle,
+html[data-theme="light"] .memory-address { color: #4c6078; }
+html[data-theme="light"] .section-count,
+html[data-theme="light"] .preview-subtitle,
+html[data-theme="light"] .memory-address { font-size: 12px; }
+html[data-theme="light"] .practical-input { color-scheme: dark; }
+
+/* Keep code, registers, and the simulator dark for contrast in either theme. */
+html[data-theme="light"] .code-window,
+html[data-theme="light"] .lab-editor,
+html[data-theme="light"] .lab-state-card,
+html[data-theme="light"] .lab-current,
+html[data-theme="light"] .lab-register,
+html[data-theme="light"] .lab-memory-row,
+html[data-theme="light"] .lab-dialog-choice select,
+html[data-theme="light"] .lab-dialog-choice input {
+  color-scheme: dark;
+}
+
+@media (max-width: 850px) {
+  html[data-theme="light"] .hero { padding: 30px 28px 55px; }
+}
+
+@media (max-width: 620px) {
+  .theme-toggle { width: 35px; height: 35px; flex-basis: 35px; margin-inline-start: 5px; border-radius: 10px; }
+  .theme-toggle span { font-size: 16px; }
+  .contact-pill { min-width: 0; min-height: 40px; width: 40px; height: 40px; padding: 2px; justify-content: center; border-radius: 50%; }
+  .contact-pill img { width: 34px; height: 34px; flex-basis: 34px; }
+  .contact-pill span { display: none; }
+  .contact-panel { left: 0; }
+  .hero-art .art-glow { width: min(100%, 410px); }
+  .hero-art .art-orbit { transform: none; }
+  html[data-theme="light"] .hero { margin-block: 20px 38px; padding: 23px 18px 45px; border-radius: 20px; }
+}
+
+@media (max-width: 380px) {
+  .brand-name { font-size: 13px; }
+  .login-btn { width: 35px; justify-content: center; }
+  .login-btn span { display: none; }
+}
+/* Keyboard accessibility. */
+.lecture-detail-tools{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%}
+.lecture-navigation{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px}
+.lecture-nav-button{min-height:34px;padding:5px 11px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text);font:inherit;cursor:pointer}
+.lecture-nav-button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--cyan-light);outline-offset:3px}
+@media(max-width:760px){.lecture-detail-tools{align-items:flex-start;flex-direction:column;gap:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Interactive Irvine32 dialogs and behavior-based lab assessment. */
+.lab-runtime-dialog{width:min(460px,calc(100% - 28px));max-height:calc(100% - 32px);padding:22px;border:1px solid #54728d;border-radius:16px;background:#17283d;color:#eef5fa;box-shadow:0 24px 80px #0009}
+.lab-runtime-dialog::backdrop{background:#020916bf;backdrop-filter:blur(3px)}
+.lab-runtime-dialog h4{margin:0 0 10px;font-size:18px}
+.lab-runtime-dialog p{color:#bdcbd8;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}
+.lab-runtime-dialog label{display:block;margin:12px 0 6px;color:#c9d8e5;font-size:13px}
+.lab-runtime-dialog input{width:100%;min-height:44px;padding:9px 12px;border:1px solid #54728d;border-radius:9px;background:#0d1929;color:#f1f5f9;font:16px 'JetBrains Mono',Consolas,monospace;direction:auto}
+.lab-runtime-actions{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:9px;margin-top:17px}
+.lab-runtime-actions button{min-height:39px;padding:8px 17px;border:1px solid #54728d;cursor:pointer}
+.lab-runtime-error{min-height:1.5em;margin:7px 0;color:#ffb3b3!important;font-size:12px}
+.lab-grader{margin:16px 0;padding:clamp(16px,3vw,24px);border:1px solid #39718c;border-radius:15px;background:linear-gradient(140deg,#162b3e,#1b2d42);color:#eaf2f7}
+.lab-grader h3{margin:0 0 5px;font-size:19px}
+.lab-grader-description,.lab-grader-summary{margin:5px 0 12px;color:#aebfd0;font-size:12px}
+.lab-grader-label{display:grid;gap:6px;margin:12px 0;color:#c7d5e1;font-size:12px}
+.lab-grader-select{max-width:100%;min-height:40px;padding:7px 10px;border:1px solid #45627a;border-radius:8px;background:#102238;color:#edf5fb;font:inherit}
+.lab-grader-prompt{margin:12px 0;padding:12px;border-right:3px solid #35b6e6;border-radius:0 8px 8px 0;background:#112b40;color:#e5f1f8;font-size:13px;line-height:1.9}
+.lab-grader-actions{display:flex;flex-wrap:wrap;gap:8px}
+.lab-grader-actions button{min-height:38px;padding:7px 12px;cursor:pointer;font-size:12px}
+.lab-grader-actions button:disabled{opacity:.5;cursor:not-allowed}
+.lab-grader-feedback{min-height:1.5em;margin:10px 0;color:#9ed9ef;font-size:12px}
+.lab-grader-report:empty{display:none}
+.lab-report{padding:14px;border:1px solid #50677e;border-radius:10px;background:#0d1b2c}
+.lab-report>strong{display:block;margin-bottom:8px;font-size:14px}
+.lab-report-pass{border-color:#36876a}.lab-report-fail,.lab-report-error{border-color:#a14f58}.lab-report-rule{border-color:#9b793d}
+.lab-report p{margin:7px 0;color:#c5d2de;font-size:12px;line-height:1.8}
+.lab-report h5{margin:14px 0 6px;color:#94d7ee;font-size:12px}
+.lab-diff{width:100%;border-collapse:collapse;margin:8px 0;direction:rtl;font-size:11px}
+.lab-diff th,.lab-diff td{padding:7px 8px;border:1px solid #354b62;text-align:right}
+.lab-diff td[dir="ltr"]{text-align:left;font-family:'JetBrains Mono',Consolas,monospace;overflow-wrap:anywhere}
+.lab-diff tr.ok td:last-child{color:#83dfb4}.lab-diff tr.bad td:last-child{color:#ffaaaa}
+.lab-grader-solution{margin:12px 0 0;padding:12px;border:1px solid #3b705e;border-radius:8px;background:#0b1b1b;color:#b4e3d0;white-space:pre-wrap;direction:ltr;text-align:left;font:12px/1.8 'JetBrains Mono',Consolas,monospace}
+.practical-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:9px}
+.practical-actions .practical-check,.practical-actions .practical-run{margin-top:0}
+.practical-report{margin-top:10px}
+.practical-report:empty{display:none}
+.practical-answer{white-space:pre-wrap}
+.lab-value{display:inline-block;border-radius:4px;padding:1px 3px;transition:background-color .2s,color .2s,box-shadow .2s}
+.lab-value-changed{color:#082c26!important;background:#70e1b5!important;box-shadow:0 0 0 2px #70e1b588,0 0 14px #49d99a66;animation:lab-value-flash .75s ease-out}
+.lab-stack-value{display:inline-block;padding:3px 6px;border-radius:5px;background:#1b2b40;color:#a9bfd2;font:10px 'JetBrains Mono',monospace}
+@keyframes lab-value-flash{from{background:#a5f3d0;box-shadow:0 0 0 4px #70e1b5aa}to{box-shadow:0 0 0 2px #70e1b588,0 0 14px #49d99a66}}
+@media(max-width:520px){.lab-grader-actions button{flex:1}.lab-diff{font-size:10px}.lab-diff th,.lab-diff td{padding:5px}}
